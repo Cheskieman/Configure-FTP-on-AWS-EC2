@@ -14,7 +14,10 @@
 * Inside the Vim Editor,Press Shift + I on your keyboard to Enter Insert Mode and then Scroll Down to where it is written "anonymous_enable=NO" & change the NO to a YES, then scroll further down to where there are two parallel lines 1) asccii_upload_enable=YES 2)ascii_download_enable=YES remove the Hashtag Comment Section from both of them.>Press Esc key on your keyboard to exit Insert Mode followed by pressing":wq and Enter" on your keyboard to exit the Vim Editor.
 * Back in the Linux Terminal, type systemctl start vsftpd (to start the service), type systemctl status vsftpd (in order to check the status of the service & to make sure that it is active) followed by typing useradd with the desired username & passwd with the desired password.(commands creating a new username and password) 
 * Go back to your EC2 Instance, Select it, Copy the Public IP Address in the Details Section> Open WinSCP from the search tab on Windows (no photo)> In the WinSCP Window, click on New Site, In the Host Name Box, put your EC2 Public IP Address(that you copied over before) as well as put your Username and Password (that you created in Linux earlier) in their respective boxes>  
-* Go back again to your EC2 Instance, Select It, Go Down on the Page and Select Both the Security Tab and the clickable link of the Security Group>Edit the Inbound Rules to be displayed like I showed in the attached photo.
+* Go back again to your EC2 Instance, Select It, Go Down on the Page and Select Both the Security Tab and the clickable link of the Security Group>Edit the Inbound Rules to be displayed. (as shown in the attached photo.)
+* Go back to your Linux Terminal and type both the following 2 commands: 1)sudo -i 2) vi /etc/vsftpd/vsftpd.conf> Inside your VIM Editor hit SHIFT + I to enter Insert Mode, scroll down below where it says "listen=NO and paste the following commands (as shown in the attached photo).> Followed by pressing ESC followed by :wq and ENTER.> type "systemctl restart vsftpd" to restart the terminal.
+*Go back to the to the WinSCP tab and type retype both your Username and Password, and the connection will most probably be succesful. 
+
 
 
 
