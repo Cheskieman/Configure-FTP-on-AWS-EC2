@@ -1,22 +1,29 @@
 # Tutorial on Configuring your EC2 instance as an FTP server. 
 
-## Full Step-by-Step guide with Snapshots to describe and illustrate how to Configure an EC2 Instance as an FTP Server.
+## Full Step-by-Step guide with Snapshots to describe and illustrate how to configure an EC2 Instance as an FTP Server.
 
-### This project will display how to............
+### This project will display how to set up and configure an FTP server on an EC2 instance, including user creation, security group adjustments, and WinSCP access verification.
+
 *Create a new EC2 Instance 
-* Login to Linux Terminal via SSH on the EC2 instance
-* Run Neccasary Configuration Files inside Linux and Vim Editor for configuration of the FTP Server to work with EC2 Instance
+* Log in to Linux Terminal via SSH on the EC2 instance
+* Run Neccasary Configuration Files inside Linux and Vim Editor for configuration of the FTP Server to work with the EC2 Instance.
+* Create a Username and Password in the Linux Terminal 
+* Copy and paste the EC2 Instance Public IP Address in WinSCP, as well as enter the Username and Password created in the Linux Terminal into WinSCP
+* Reconfigure both the security group inbound rules as well as reconfigure the VIM Editor.
+* Logging back into WinSCP after both the reconfiguration is complete for the Security Group and the VIM Editor.
 
-#### Instructions on how to .................
+
+#### Step-by-Step Instructions on how to set up and configure an FTP server on an EC2 instance, including user creation, security group adjustments, and WinSCP access verification.
+
 * Click on Launch Instance EC2>Select your Instance Name, AMI, Key Pair & Security Group, finally click Launch Instance.
 * Select your newly Created Instance> Click Connect at the top of the Instance, SSH Client from the options, Select for copying your Instance via SSH> Type into your Windows Search Box "Command Prompt" and Select "Administrator">Paste your SSH Instance Code into Command Prompt and Press Enter.
-* Once Linux Terminal is loaded, type sudo -i, type yum update -y (to update the terminal), type yum install vsftpd( to install the ftp plug-ins.), type vi /etc/vsftpd/vsftpd.conf (to modify the configuration file.)
-* Inside the Vim Editor,Press Shift + I on your keyboard to Enter Insert Mode and then Scroll Down to where it is written "anonymous_enable=NO" & change the NO to a YES, then scroll further down to where there are two parallel lines 1) asccii_upload_enable=YES 2)ascii_download_enable=YES remove the Hashtag Comment Section from both of them.>Press Esc key on your keyboard to exit Insert Mode followed by pressing":wq and Enter" on your keyboard to exit the Vim Editor.
-* Back in the Linux Terminal, type systemctl start vsftpd (to start the service), type systemctl status vsftpd (in order to check the status of the service & to make sure that it is active) followed by typing useradd with the desired username & passwd with the desired password.(commands creating a new username and password) 
+* Once Linux Terminal is loaded, type sudo -i, type yum update -y (to update the terminal), type yum install vsftpd( to install the ftp plug-ins), type vi /etc/vsftpd/vsftpd.conf (to modify the configuration file).
+* Inside the Vim Editor, Press Shift + I on your keyboard to Enter Insert Mode and then Scroll Down to where it is written "anonymous_enable=NO" & change the NO to a YES, then scroll further down to where there are two parallel lines 1) asccii_upload_enable=YES 2)ascii_download_enable=YES remove the Hashtag Comment Section from both of them.>Press Esc key on your keyboard to exit Insert Mode followed by pressing":wq and Enter" on your keyboard to exit the Vim Editor.
+* Back in the Linux Terminal, type systemctl start vsftpd (to start the service), type systemctl status vsftpd (to check the status of the service & to make sure that it is active), followed by typing useradd with the desired username & passwd with the desired password. (commands creating a new username and password) 
 * Go back to your EC2 Instance, Select it, Copy the Public IP Address in the Details Section> Open WinSCP from the search tab on Windows (no photo)> In the WinSCP Window, click on New Site, In the Host Name Box, put your EC2 Public IP Address(that you copied over before) as well as put your Username and Password (that you created in Linux earlier) in their respective boxes>  
-* Go back again to your EC2 Instance, Select It, Go Down on the Page and Select Both the Security Tab and the clickable link of the Security Group>Edit the Inbound Rules to be displayed. (as shown in the attached photo.)
-* Go back to your Linux Terminal and type both the following 2 commands: 1)sudo -i 2) vi /etc/vsftpd/vsftpd.conf> Inside your VIM Editor hit SHIFT + I to enter Insert Mode, scroll down below where it says "listen=NO and paste the following commands (as shown in the attached photo).> Followed by pressing ESC followed by :wq and ENTER.> type "systemctl restart vsftpd" to restart the terminal.
-*Go back to the to the WinSCP tab and type retype both your Username and Password, and the connection will most probably be succesful. 
+* Go back again to your EC2 Instance, Select It, Go Down on the Page, and Select Both the Security Tab and the clickable link of the Security Group>Edit the Inbound Rules to be displayed. (as shown in the attached photo.)
+* Go back to your Linux Terminal and type both the following 2 commands: 1)sudo -i 2) vi /etc/vsftpd/vsftpd.conf> Inside your VIM Editor, hit SHIFT + I to enter Insert Mode, scroll down below where it says "listen=NO and paste the following commands (as shown in the attached photo).> Followed by pressing ESC, followed by:wq and ENTER.> type "systemctl restart vsftpd" to restart the terminal.
+*Go back to the WinSCP tab and type in both your Username and Password, and the connection will likely be successful. 
 
 
 
