@@ -26,24 +26,25 @@ In Vim: press Shift+I, change anonymous_enable=NO → YES, uncomment ascii_uploa
 
 Back in terminal: systemctl start vsftpd, systemctl status vsftpd (check active), then run useradd <username> & passwd <username> to create login.
 
-![Launch EC2 Instance](resources/EC2LAUNCHINSTANCE.png)
-![Name Your EC2 Instance and Select AMI](resources/EC2NAMEINSTANCEANDSELECTAMI.png)
-![Select EC2 Instance AMI and Keypair](resources/EC2NEWINSTANCETYPEANDKEYPAIR.png)
-![Select Edit EC2 Security Group Setup ](resources/EC2EDITBUTTONFORSECURITYGROUP.png)
-![Set up Initial Security Group Rules](resources/EC2INTIALSECURITYGROUPRULES.png)
-![Bottom of EC2 page Launch Setup](resources/EC2ENDINGLAUNCHINSTANCEBUTTONSELECT.png)
-![Instance Connect Button](resources/EC2CONNECTBUTTON.png)
-![Select SSH Client Tab EC2 Instance](resources/EC2SSH CLIENTSELECT.png)
-![Connect to your Instance VIA SSH in Command Prompt] (resources/EC2RELATEDPASTESSSHINSTANCEINTOCOMMANDPROMPT.png)
-![Type sudo -i in terminal to simulate initial login](resources/LINUXTERMINALsudo-icommand.png)
-![Type yum update -y to update terminal](resources/LINUXTERMINAL yum update -y command.png)
-![Type yum install vsftpd command to install ftp plug-ins](resources/LINUXTERMINAL yum install vsftpd command.png)
-![Configure File with "vi /etc/vsftpd/vsftpd.conf" ](resources/LINUXTERMINAL vi etcvsftpdvsftpd.conf command.png)
-![change anonymous_enable=NO to YES](resources/VIMEDITORchange anonymous_enableYES.png)
-![Remove the comment Hashtag from bothasccii_upload_enable=YES 2)ascii_download_enable=YES  ](resources/VIM EDITORASCII UPLOAD AND DOWNLOAD REMOVE HASHTAGS COMMENTS.png)
-![Type "system start vsftpd" to start the service](resources/BACKLINUXTERMINAL systemctlstartvsftpdcommand.png)
-![Check the status of the service & to make sure that it is active](resources/BACKLINUXTERMINAL systemctlsttatusvsftpdcommand.png)
-![Create a New Username and Password in Linux Terminal](resources/BACKLINUXTERMINAL createnewusernameandpasswordcommands.png)
+![Launch EC2 Instance](resources/EC2LAUNCHINSTANCE.png)  
+![Name and Select AMI](resources/EC2NAMEINSTANCEANDSELECTAMI.png)  
+![Choose Instance Type and Key Pair](resources/EC2NEWINSTANCETYPEANDKEYPAIR.png)  
+![Edit Security Group](resources/EC2EDITBUTTONFORSECURITYGROUP.png)  
+![Initial Security Group Rules](resources/EC2INTIALSECURITYGROUPRULES.png)  
+![Launch Setup (Bottom of Page)](resources/EC2ENDINGLAUNCHINSTANCEBUTTONSELECT.png)  
+![Connect to Instance](resources/EC2CONNECTBUTTON.png)  
+![SSH Client Tab](resources/EC2SSH CLIENTSELECT.png)  
+![SSH via Command Prompt](resources/EC2RELATEDPASTESSSHINSTANCEINTOCOMMANDPROMPT.png)  
+![Run `sudo -i`](resources/LINUXTERMINALsudo-icommand.png)  
+![Run `yum update -y`](resources/LINUXTERMINAL yum update -y command.png)  
+![Run `yum install vsftpd`](resources/LINUXTERMINAL yum install vsftpd command.png)  
+![Edit Config with `vi /etc/vsftpd/vsftpd.conf`](resources/LINUXTERMINAL vi etcvsftpdvsftpd.conf command.png)  
+![Set `anonymous_enable=YES`](resources/VIMEDITORchange anonymous_enableYES.png)  
+![Uncomment `ascii_upload_enable=YES` and `ascii_download_enable=YES`](resources/VIM EDITORASCII UPLOAD AND DOWNLOAD REMOVE HASHTAGS COMMENTS.png)  
+![Start vsftpd](resources/BACKLINUXTERMINAL systemctlstartvsftpdcommand.png)  
+![Check vsftpd Status](resources/BACKLINUXTERMINAL systemctlsttatusvsftpdcommand.png)  
+![Create User and Password](resources/BACKLINUXTERMINAL createnewusernameandpasswordcommands.png)  
+
 
 
 
