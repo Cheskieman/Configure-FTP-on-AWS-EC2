@@ -56,7 +56,7 @@
 ![Enter Public IP, Linux Created Username & Password into WinSCP](resources/WinSCP Login Screen.png)
 ![Select in the EC2 Instance Both the Security Tab and the Security Groups Link](resources/EC2INSTANCESECURITYTABAND SECURITYGROUPSELECT.png)
 ![Select Edit Inbound Rules from Security Groups Page](resources/SECURITYGROUPPAGESELECTEDITINBOUNDRULES.png)
-![Actual Editing of the Specfic Inbound Rules](resources/SECURITYGROUPPAGEACTUALLYEDITINGREVISING INBOUNDRULES.png)
+![Actual Editing of the Specific Inbound Rules](resources/SECURITYGROUPPAGEACTUALLYEDITINGREVISING INBOUNDRULES.png)
 ![Go back into Linux Terminal and type 2 commands 1) sudo-i 2) vi /etc/vsftpd/vsftpd.conf](resources/photo2.png)
 ![Back inside VIM Editor, paste this command under listen=NO ](resources/BACKINVIMEDITORCOMMANDSTOPASTE.png)
 ![Write the restart command complete configuration.](resources/BACKINLINUXTERMINALwriterestartcommand.png)
