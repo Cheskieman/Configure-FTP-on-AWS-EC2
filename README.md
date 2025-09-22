@@ -21,6 +21,8 @@
 * Once Linux Terminal is loaded, type sudo -i, type yum update -y (to update the terminal), type yum install vsftpd( to install the ftp plug-ins), type vi /etc/vsftpd/vsftpd.conf (to modify the configuration file).
 * Inside the Vim Editor, Press Shift + I on your keyboard to Enter Insert Mode and then Scroll Down to where it is written "anonymous_enable=NO" & change the NO to a YES, then scroll further down to where there are two parallel lines 1) asccii_upload_enable=YES 2)ascii_download_enable=YES remove the Hashtag Comment Section from both of them.>Press Esc key on your keyboard to exit Insert Mode followed by pressing":wq and Enter" on your keyboard to exit the Vim Editor.
 * Back in the Linux Terminal, type systemctl start vsftpd (to start the service), type systemctl status vsftpd (to check the status of the service & to make sure that it is active), followed by typing useradd with the desired username & passwd with the desired password. (commands creating a new username and password) 
+
+
 ![Launch EC2 Instance](resources/EC2LAUNCHINSTANCE.png)
 ![Name Your EC2 Instance and Select AMI](resources/EC2NAMEINSTANCEANDSELECTAMI.png)
 ![Select EC2 Instance AMI and Keypair](resources/EC2NEWINSTANCETYPEANDKEYPAIR.png)
