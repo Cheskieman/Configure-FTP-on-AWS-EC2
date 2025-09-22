@@ -16,12 +16,15 @@
 #### Step-by-Step Instructions on how to set up and configure an FTP server on an EC2 instance, including user creation, security group adjustments, and WinSCP access verification.
 
 **Part1**
-* Click on Launch Instance EC2>Select your Instance Name, AMI, Key Pair & Security Group, finally click Launch Instance.
-* Select your newly Created Instance> Click Connect at the top of the Instance, SSH Client from the options, Select for copying your Instance via SSH> Type into your Windows Search Box "Command Prompt" and Select "Administrator">Paste your SSH Instance Code into Command Prompt and Press Enter.
-* Once Linux Terminal is loaded, type sudo -i, type yum update -y (to update the terminal), type yum install vsftpd( to install the ftp plug-ins), type vi /etc/vsftpd/vsftpd.conf (to modify the configuration file).
-* Inside the Vim Editor, Press Shift + I on your keyboard to Enter Insert Mode and then Scroll Down to where it is written "anonymous_enable=NO" & change the NO to a YES, then scroll further down to where there are two parallel lines 1) asccii_upload_enable=YES 2)ascii_download_enable=YES remove the Hashtag Comment Section from both of them.>Press Esc key on your keyboard to exit Insert Mode followed by pressing":wq and Enter" on your keyboard to exit the Vim Editor.
-* Back in the Linux Terminal, type systemctl start vsftpd (to start the service), type systemctl status vsftpd (to check the status of the service & to make sure that it is active), followed by typing useradd with the desired username & passwd with the desired password. (commands creating a new username and password) 
+Launch EC2 instance → choose Name, AMI, Key Pair, Security Group → click Launch.
 
+Select instance → Connect → SSH Client → copy SSH code → open Command Prompt (Admin) → paste code & press Enter.
+
+In Linux terminal: sudo -i, yum update -y, yum install vsftpd, vi /etc/vsftpd/vsftpd.conf.
+
+In Vim: press Shift+I, change anonymous_enable=NO → YES, uncomment ascii_upload_enable=YES & ascii_download_enable=YES, then Esc :wq Enter.
+
+Back in terminal: systemctl start vsftpd, systemctl status vsftpd (check active), then run useradd <username> & passwd <username> to create login.
 
 ![Launch EC2 Instance](resources/EC2LAUNCHINSTANCE.png)
 ![Name Your EC2 Instance and Select AMI](resources/EC2NAMEINSTANCEANDSELECTAMI.png)
