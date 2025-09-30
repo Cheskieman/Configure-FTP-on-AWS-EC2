@@ -15,102 +15,104 @@
 
 #### Step-by-Step Instructions on how to set up and configure an FTP server on an EC2 instance, including user creation, security group adjustments, and WinSCP access verification.
 
-**Part1**
-Launch EC2 instance → 
+Part 1
 
-![Launch EC2 Instance](resources/EC2LAUNCHINSTANCE.png)
+Launch EC2 instance
 
-Choose Instance Name, Select the AMI for the Instance, and Choose the Instance Type & Key Pair
+<p align="center"> <img src="resources/EC2LAUNCHINSTANCE.png" alt="Launch EC2 Instance" width="900" /> </p>
 
-  
-![Name and Select AMI](resources/EC2NAMEINSTANCEANDSELECTAMI.png)  
-![Choose Instance Type and Key Pair](resources/EC2NEWINSTANCETYPEANDKEYPAIR.png) 
+Choose instance name, AMI, type, and key pair
 
- Select the Edit button next to the Security Group 
+<p align="center"> <img src="resources/EC2NAMEINSTANCEANDSELECTAMI.png" alt="Choose Instance Name and AMI" width="900" /> </p> <p align="center"> <img src="resources/EC2NEWINSTANCETYPEANDKEYPAIR.png" alt="Choose Instance Type and Key Pair" width="900" /> </p>
 
-![Edit Security Group](resources/EC2EDITBUTTONFORSECURITYGROUP.png)  
+Edit the security group
 
-Set up the initial Security Group rules
+<p align="center"> <img src="resources/EC2EDITBUTTONFORSECURITYGROUP.png" alt="Edit Security Group" width="900" /> </p>
 
-![Initial Security Group Rules](resources/EC2INTIALSECURITYGROUPRULES.png)  
+View initial security group rules
 
-Click Launch at the bottom of the page
+<p align="center"> <img src="resources/EC2INTIALSECURITYGROUPRULES.png" alt="Initial Security Group Rules" width="900" /> </p>
 
-![Launch Setup (Bottom of Page)](resources/EC2ENDINGLAUNCHINSTANCEBUTTONSELECT.png) 
+Click launch at the bottom of the page
 
-Select the instance created and press Connect
+<p align="center"> <img src="resources/EC2ENDINGLAUNCHINSTANCEBUTTONSELECT.png" alt="Launch Instance Setup Confirmation" width="900" /> </p>
 
+Connect to the instance
 
-![Connect to Instance](resources/EC2CONNECTBUTTON.png) 
+<p align="center"> <img src="resources/EC2CONNECTBUTTON.png" alt="Connect to Instance" width="900" /> </p>
 
- Select the SSH Client Tab
+Select the SSH client tab
 
-![SSH Client Tab](resources/EC2SSH CLIENTSELECT.png) 
+<p align="center"> <img src="resources/EC2SSH CLIENTSELECT.png" alt="SSH Client Tab" width="900" /> </p>
 
-Copy the SSH code in the SSH tab > Open Command Prompt (Admin) > paste code & press Enter.
+SSH into the instance using Command Prompt
 
-![SSH via Command Prompt](resources/EC2RELATEDPASTESSSHINSTANCEINTOCOMMANDPROMPT.png) 
+<p align="center"> <img src="resources/EC2RELATEDPASTESSSHINSTANCEINTOCOMMANDPROMPT.png" alt="SSH via Command Prompt" width="900" /> </p>
 
-In Linux terminal: type the following 3 commands.
-1) sudo -i, yum
- 
- ![Run `sudo -i`](resources/LINUXTERMINALsudo-icommand.png)  
-2) update -y, yum install vsftpd
+Run sudo -i in Linux terminal
 
-![Run `yum update -y`,](resources/LINUXTERMINAL yum update -y command.png)  
- 3)vi /etc/vsftpd/vsftpd.conf.
+<p align="center"> <img src="resources/LINUXTERMINALsudo-icommand.png" alt="Linux terminal sudo -i command" width="900" /> </p>
 
- ![Edit Config with `vi /etc/vsftpd/vsftpd.conf`](resources/LINUXTERMINAL vi etcvsftpdvsftpd.conf command.png) 
+Run yum update -y and install vsftpd
 
-In Vim: press Shift+I, change anonymous_enable=NO → YES,
-Scroll down and uncomment ascii_upload_enable=YES & ascii_download_enable=YES, then Esc :wq Enter.
+<p align="center"> <img src="resources/LINUXTERMINAL yum update -y command.png" alt="Linux terminal yum update -y command" width="900" /> </p>
 
-![Set `anonymous_enable=YES`](resources/VIMEDITORchange anonymous_enableYES.png) 
+Edit the vsftpd config file with Vim
 
-![Uncomment `ascii_upload_enable=YES` and `ascii_download_enable=YES`](resources/VIM EDITORASCII UPLOAD AND DOWNLOAD REMOVE HASHTAGS COMMENTS.png)  
+<p align="center"> <img src="resources/LINUXTERMINAL vi etcvsftpdvsftpd.conf command.png" alt="Linux terminal vi config command" width="900" /> </p>
 
+Set anonymous_enable=YES in config
 
-Back in the Linux terminal: type the following commands
+<p align="center"> <img src="resources/VIMEDITORchange anonymous_enableYES.png" alt="VIM set anonymous_enable YES" width="900" /> </p>
 
-1)systemctl start vsftpd 
+Uncomment ascii upload and download options
 
-![Start vsftpd](resources/BACKLINUXTERMINAL systemctlstartvsftpdcommand.png)  
-2)systemctl status vsftpd (check that the status is active) 
+<p align="center"> <img src="resources/VIM EDITORASCII UPLOAD AND DOWNLOAD REMOVE HASHTAGS COMMENTS.png" alt="VIM ascii upload/download enable" width="900" /> </p>
 
-![Check vsftpd Status](resources/BACKLINUXTERMINAL systemctlsttatusvsftpdcommand.png) 
-3)useradd <type username> & passwd <type password> to create login.
+Start the vsftpd service
 
-![Create User and Password](resources/BACKLINUXTERMINAL createnewusernameandpasswordcommands.png)  
-  
- 
- 
- 
- 
+<p align="center"> <img src="resources/BACKLINUXTERMINAL systemctlstartvsftpdcommand.png" alt="systemctl start vsftpd" width="900" /> </p>
 
+Check the vsftpd service status
 
+<p align="center"> <img src="resources/BACKLINUXTERMINAL systemctlsttatusvsftpdcommand.png" alt="systemctl status vsftpd" width="900" /> </p>
 
+Create a new user and set a password
 
+<p align="center"> <img src="resources/BACKLINUXTERMINAL createnewusernameandpasswordcommands.png" alt="Linux create new user and password" width="900" /> </p>
+Part 2
 
+Copy the public IP from EC2 instance details
 
-**Part2**
+<p align="center"> <img src="resources/EC2INSTANCESELECTPUBLICIPADDRESS.png" alt="Copy Public IP from EC2 Instance" width="900" /> </p>
 
-* Go back to your EC2 Instance in the AWS Console and select it, Copy the Public IP Address in the Details Section> Open WinSCP from the search tab on Windows (no photo)> In the WinSCP Window, click on New Site, In the Host Name Box, put your EC2 Public IP Address(that you copied over before) as well as put your Username and Password (that you created in Linux earlier) in their respective boxes>  
-* Go back again to your EC2 Instance, Select It, Go Down on the Page, and Select Both the Security Tab and the clickable link of the Security Group>Edit the Inbound Rules to be displayed. (as shown in the attached photo.)
-*Go back to your Linux Terminal and type both the following 2 commands: 1)sudo -i 2) vi /etc/vsftpd/vsftpd.conf>. Inside your VIM Editor, hit SHIFT + I to enter Insert Mode, scroll down below where it says "listen=NO and paste the following commands (as shown in the attached photo).> Followed by pressing ESC, followed by:wq and ENTER.> type "systemctl restart vsftpd" to restart the terminal.
-*Go back to the WinSCP tab and type in both your Username and Password, and the connection will likely be successful. 
+Enter IP, username, and password in WinSCP
 
-![Select PublicIP Address from EC2 Instance](resources/EC2INSTANCESELECTPUBLICIPADDRESS.png)
-![Enter Public IP, Linux Created Username & Password into WinSCP](resources/WinSCP Login Screen.png)
-![Select in the EC2 Instance Both the Security Tab and the Security Groups Link](resources/EC2INSTANCESECURITYTABAND SECURITYGROUPSELECT.png)
-![Select Edit Inbound Rules from Security Groups Page](resources/SECURITYGROUPPAGESELECTEDITINBOUNDRULES.png)
-![Actual Editing of the Specific Inbound Rules](resources/SECURITYGROUPPAGEACTUALLYEDITINGREVISING INBOUNDRULES.png)
-![Go back into Linux Terminal and type 2 commands 1) sudo-i 2) vi /etc/vsftpd/vsftpd.conf](resources/photo2.png)
-![Back inside VIM Editor, paste this command under listen=NO ](resources/BACKINVIMEDITORCOMMANDSTOPASTE.png)
-![Write the restart command complete configuration.](resources/BACKINLINUXTERMINALwriterestartcommand.png)
-![Try connecting in the WinSCP Window AGAIN](resources/WinSCP Login Screen.png)
+<p align="center"> <img src="resources/WinSCP Login Screen.png" alt="WinSCP login screen" width="900" /> </p>
 
+Open the security tab and security group link in EC2 instance
 
+<p align="center"> <img src="resources/EC2INSTANCESECURITYTABAND SECURITYGROUPSELECT.png" alt="EC2 Instance Security Tab and Security Group Select" width="900" /> </p>
 
+Edit inbound rules in the security group
+
+<p align="center"> <img src="resources/SECURITYGROUPPAGESELECTEDITINBOUNDRULES.png" alt="Edit inbound rules in security group" width="900" /> </p> <p align="center"> <img src="resources/SECURITYGROUPPAGEACTUALLYEDITINGREVISING INBOUNDRULES.png" alt="Inbound rules editing screen" width="900" /> </p>
+
+Reopen vsftpd config in Linux terminal
+
+<p align="center"> <img src="resources/photo2.png" alt="Linux terminal reopen vsftpd config" width="900" /> </p>
+
+Paste configuration under listen=NO in Vim
+
+<p align="center"> <img src="resources/BACKINVIMEDITORCOMMANDSTOPASTE.png" alt="Paste config under listen=NO" width="900" /> </p>
+
+Restart the vsftpd service
+
+<p align="center"> <img src="resources/BACKINLINUXTERMINALwriterestartcommand.png" alt="Restart vsftpd service" width="900" /> </p>
+
+Retry WinSCP login with credentials
+
+<p align="center"> <img src="resources/WinSCP Login Screen.png" alt="WinSCP login retry" width="900" /> </p>
 
 ##### Contribution Policy
 
