@@ -121,4 +121,4 @@ This project is not accepting external contributions, including pull requests or
 It serves as a personal archive of my learning journey in applying foundational concepts in software development and version control. Active development is not ongoing, and external changes will not be integrated.
 
 
-![Run `yum install vsftpd`](resources/LINUXTERMINAL yum install vsftpd command.png) 
+
